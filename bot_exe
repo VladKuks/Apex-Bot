@@ -1,26 +1,27 @@
-import discord       
-import os            
-import os.path       
-import ssl           
-import stat          
-import subprocess    
-import sys           
-import functions     
-from discord.ext impo
-                     
-TOKEN = 'NzE4MTAzNzA4
-bot = commands.Bot(co
-                     
-@bot.command(pass_con
-async def test(ctx, a
-    await ctx.send(ar
-                     
-@bot.event           
-async def on_ready():
-    print(f'Logged in
-                     
-@bot.command()       
-async def ping(ctx: c
-    user = ctx.author
-                     
-bot.run(TOKEN)       
+import discord                                                               
+import os                                                                    
+import os.path                                                               
+import ssl                                                                   
+import stat                                                                  
+import subprocess                                                            
+import sys                                                                   
+import functions                                                             
+from discord.ext import commands                                             
+                                                                             
+TOKEN = '-----------------------'        
+bot = commands.Bot(command_prefix='!')                                       
+                                                                             
+@bot.command(pass_context=True)  # разрешаем передавать агрументы            
+async def test(ctx, arg):  # создаем асинхронную фунцию бота                 
+    await ctx.send(arg)  # отправляем обратно аргумент                       
+                                                                             
+@bot.event                                                                   
+async def on_ready():                                                        
+    print(f'Logged in as {bot.user.name}')                                   
+                                                                             
+@bot.command()                                                               
+async def ping(ctx: commands.Context):                                       
+    user = ctx.author.mention                                                
+                                                                             
+bot.run(TOKEN)                                                               
+                                                                             

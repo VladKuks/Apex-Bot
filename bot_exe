@@ -1,0 +1,26 @@
+import discord       
+import os            
+import os.path       
+import ssl           
+import stat          
+import subprocess    
+import sys           
+import functions     
+from discord.ext impo
+                     
+TOKEN = 'NzE4MTAzNzA4
+bot = commands.Bot(co
+                     
+@bot.command(pass_con
+async def test(ctx, a
+    await ctx.send(ar
+                     
+@bot.event           
+async def on_ready():
+    print(f'Logged in
+                     
+@bot.command()       
+async def ping(ctx: c
+    user = ctx.author
+                     
+bot.run(TOKEN)       
